@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Outubro Rosa 2026 - Conscientização e Prevenção</title>
+  <meta name="description" content="Campanha Outubro Rosa: 1. Faça o Autoexame, 2. Fatores de Risco, 3. Apoie e Informe. Navegue pelas orientações preventivas.">
+  <meta name="theme-color" content="#f43f5e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fundo decorativo ambiental para telas grandes e ambientação mobile -->
+  <div class="ambient-backdrop" aria-hidden="true">
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ribbon-decor decor-top"></div>
+    <div class="ribbon-decor decor-bottom"></div>
+  </div>
+
+  <!-- Container principal (emula celular no desktop e tela cheia 100dvh no mobile) -->
+  <main class="mobile-viewport" id="mobileViewport">
+    
+    <!-- Barra superior translúcida com informações e ações rápidas -->
+    <header class="app-header">
+      <div class="brand-badge">
+        <span class="ribbon-icon" aria-hidden="true">🎗️</span>
+        <span class="brand-text">Outubro Rosa</span>
+      </div>
+      <div class="page-counter-badge" id="pageCounterBadge" aria-live="polite">
+        <span id="currentPageNum">1</span><span class="divider">/</span><span>3</span>
+      </div>
+    </header>
+
+    <!-- Área de visualização do Carrossel / Slider com suporte a Touch & Mouse Drag -->
+    <div class="slider-wrapper" id="sliderWrapper" role="region" aria-label="Carrossel de Imagens Outubro Rosa" tabindex="0">
+      <div class="slider-track" id="sliderTrack">
+        
+        <!-- Slide 1 -->
+        <article class="slide-card active" data-slide="0" aria-label="Página 1 de 3: Faça o Autoexame">
+          <div class="slide-ambient-bg" style="background-image: url('1.png');"></div>
+          <div class="image-box">
+            <img 
+              src="1.png" 
+              alt="1. Faça o Autoexame! Realizar o autoexame mensalmente ajuda a identificar qualquer alteração nos seios. Sinais de alerta: nódulo ou caroço, secreção incomum, dor persistente, inchaço, alterações na mama ou no mamilo." 
+              class="slide-img" 
+              draggable="false"
+              loading="eager"
+            />
+          </div>
+        </article>
+
+        <!-- Slide 2 -->
+        <article class="slide-card" data-slide="1" aria-label="Página 2 de 3: Fatores de Risco">
+          <div class="slide-ambient-bg" style="background-image: url('2.png');"></div>
+          <div class="image-box">
+            <img 
+              src="2.png" 
+              alt="2. Fatores de Risco: Idade, histórico familiar, fatores genéticos, uso de álcool, sedentarismo, obesidade." 
+              class="slide-img" 
+              draggable="false"
+              loading="lazy"
+            />
+          </div>
+        </article>
+
+        <!-- Slide 3 -->
+        <article class="slide-card" data-slide="2" aria-label="Página 3 de 3: Apoie e Informe">
+          <div class="slide-ambient-bg" style="background-image: url('3.png');"></div>
+          <div class="image-box">
+            <img 
+              src="3.png" 
+              alt="3. Apoie e Informe! Compartilhe informações e apoie quem você ama. Outubro é o mês de espalhar a conscientização! A mamografia é essencial para a detecção precoce." 
+              class="slide-img" 
+              draggable="false"
+              loading="lazy"
+            />
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Dica de gesto animada (some após o primeiro toque/arraste) -->
+      <div class="swipe-hint" id="swipeHint" aria-hidden="true">
+        <div class="swipe-icon-animation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+          </svg>
+        </div>
+        <span>Arraste para os lados</span>
+      </div>
+    </div>
+
+    <!-- Barra de navegação inferior flutuante (Bottom Floating Navigation Bar) -->
+    <nav class="floating-nav-bar" aria-label="Navegação da apresentação">
+      <!-- Botão Retroceder / Anterior -->
+      <button 
+        type="button" 
+        class="nav-btn prev-btn" 
+        id="btnPrev" 
+        aria-label="Página anterior" 
+        title="Retroceder para a página anterior"
+        disabled
+      >
+        <span class="btn-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </span>
+        <span class="btn-text">Anterior</span>
+      </button>
+
+      <!-- Indicadores de páginas (Dots interativos) -->
+      <div class="dots-indicator" id="dotsIndicator" role="tablist" aria-label="Indicadores de página">
+        <button type="button" class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Ir para a página 1"></button>
+        <button type="button" class="dot" data-index="1" role="tab" aria-selected="false" aria-label="Ir para a página 2"></button>
+        <button type="button" class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Ir para a página 3"></button>
+      </div>
+
+      <!-- Botão Avançar / Próximo -->
+      <button 
+        type="button" 
+        class="nav-btn next-btn" 
+        id="btnNext" 
+        aria-label="Próxima página" 
+        title="Avançar para a próxima página"
+      >
+        <span class="btn-text">Avançar</span>
+        <span class="btn-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </span>
+      </button>
+    </nav>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
